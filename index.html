@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Jack Rentschler - Professional web developer specializing in modern web applications, UI/UX design, and full-stack development. View my portfolio at jrentschler.com">
+    <meta name="keywords" content="Jack Rentschler, web developer, portfolio, UI/UX design, mobile development, React, Vue.js, Node.js, full-stack developer, jrentschler.com">
+    <meta name="author" content="Jack Rentschler">
+    <meta name="theme-color" content="#b9ff66">
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="preconnect" href="https://github.com" crossorigin>
+    <link rel="dns-prefetch" href="https://rentschler.me">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jrentschler.com/">
+    <meta property="og:title" content="Jack Rentschler - Professional Web Developer">
+    <meta property="og:description" content="Professional web developer specializing in modern web applications, UI/UX design, and full-stack development.">
+    <meta property="og:image" content="https://jrentschler.com/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jrentschler.com/">
+    <meta property="twitter:title" content="Jack Rentschler - Professional Web Developer">
+    <meta property="twitter:description" content="Professional web developer specializing in modern web applications, UI/UX design, and full-stack development.">
+    <meta property="twitter:image" content="https://jrentschler.com/og-image.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jrentschler.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="manifest" href="/manifest.json">
+    
+    <title>Jack Rentschler - Professional Web Developer | jrentschler.com</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jack Rentschler",
+        "url": "https://jrentschler.com",
+        "image": "https://jrentschler.com/profile-image.jpg",
+        "jobTitle": "Web Developer",
+        "description": "Professional web developer specializing in modern web applications, UI/UX design, and full-stack development",
+        "email": "johnkrentschler@icloud.com",
+        "sameAs": [
+            "https://github.com/rntschlr"
+        ],
+        "knowsAbout": [
+            "Web Development",
+            "React",
+            "Node.js",
+            "UI/UX Design",
+            "Mobile Development",
+            "JavaScript",
+            "TypeScript"
+        ]
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a1a1a;
+            --accent-green: #b9ff66;
+            --text-light: #f5f5f5;
+            --text-gray: #8a8a8a;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            
+            /* Animation Variables */
+            --animation-duration: 0.3s;
+            --animation-easing: ease-in-out;
+            --animation-duration-slow: 0.6s;
+            
+            /* Breakpoints */
+            --breakpoint-mobile: 768px;
+            --breakpoint-tablet: 1024px;
+            
+            /* Spacing */
+            --padding-section: 6rem 5%;
+            --max-width: 1400px;
+        }
+
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--accent-green);
+            color: var(--primary-dark);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 10000;
+            font-weight: 600;
+            transition: top var(--animation-duration) var(--animation-easing);
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .profile-circle {
+                animation: none !important;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all var(--animation-duration) var(--animation-easing);
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-green), #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color var(--animation-duration) var(--animation-easing);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--accent-green);
+            outline: 2px solid transparent;
+        }
+
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--accent-green);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .hero-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-green);
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: float 6s var(--animation-easing) infinite;
+            will-change: transform;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -20px, 0); }
+        }
+
+        .profile-circle::before {
+            content: '';
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-green);
+            opacity: 0.3;
+            animation: pulse 3s var(--animation-easing) infinite;
+            will-change: transform, opacity;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate3d(-50%, -50%, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate3d(-50%, -50%, 0) scale(1.1); opacity: 0.1; }
+        }
+
+        .profile-circle::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            -o-object-fit: cover;
+               object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--animation-duration) var(--animation-easing);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+
+        .btn:focus-visible {
+            outline: 2px solid var(--accent-green);
+            outline-offset: 4px;
+        }
+
+        .btn-primary {
+            background: var(--accent-green);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-2px) translateZ(0);
+            box-shadow: 0 10px 30px rgba(185, 255, 102, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-gray);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--padding-section);
+            background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.05) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: var(--accent-green);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .services-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all var(--animation-duration) var(--animation-easing);
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-green);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--animation-duration) var(--animation-easing);
+        }
+
+        .service-card:hover::before,
+        .service-card:focus-within::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover,
+        .service-card:focus-within {
+            transform: translateY(-5px) translateZ(0);
+            background: rgba(185, 255, 102, 0.05);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-green);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: var(--padding-section);
+        }
+
+        .projects-grid {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all var(--animation-duration) var(--animation-easing);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .project-card:hover,
+        .project-card:focus-within {
+            transform: scale(1.02) translateZ(0);
+            border-color: var(--accent-green);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--bg-gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(185, 255, 102, 0.1);
+            color: var(--accent-green);
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-description {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap var(--animation-duration) var(--animation-easing);
+        }
+
+        .project-link:hover,
+        .project-link:focus {
+            gap: 1rem;
+        }
+
+        .project-link:focus-visible {
+            outline: 2px solid var(--accent-green);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--padding-section);
+            background: linear-gradient(180deg, transparent 0%, rgba(185, 255, 102, 0.05) 100%);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+        }
+
+        .contact-description {
+            color: var(--text-gray);
+            font-size: 1.25rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all var(--animation-duration) var(--animation-easing);
+            transform: translateZ(0);
+        }
+
+        .contact-link:hover,
+        .contact-link:focus {
+            background: var(--accent-green);
+            color: var(--primary-dark);
+            transform: translateY(-5px) translateZ(0);
+        }
+
+        .contact-link:focus-visible {
+            outline: 2px solid var(--accent-green);
+            outline-offset: 4px;
+        }
+
+        .contact-link svg {
+            transition: transform var(--animation-duration) var(--animation-easing);
+        }
+
+        .contact-link:hover svg,
+        .contact-link:focus svg {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-gray);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .profile-circle {
+                width: 250px;
+                height: 250px;
+            }
+
+            .profile-circle::before {
+                width: 270px;
+                height: 270px;
+            }
+
+
+            .cta-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Animation classes for JavaScript */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--animation-duration-slow) var(--animation-easing),
+                        transform var(--animation-duration-slow) var(--animation-easing);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --text-gray: #ffffff;
+                --card-bg: rgba(255, 255, 255, 0.15);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="logo" aria-label="Jack Rentschler Logo">JR.</div>
+            <ul class="nav-links">
+                <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                <li><a href="#services" aria-label="Go to services section">Services</a></li>
+                <li><a href="#projects" aria-label="Go to projects section">Projects</a></li>
+                <li><a href="#contact" aria-label="Go to contact section">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main" tabindex="-1">
+        <!-- Hero Section -->
+        <section class="hero" id="home" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 id="hero-heading">Hi, I'm <span>Jack Rentschler</span></h1>
+                    <p class="hero-description">A passionate developer crafting digital experiences with modern technologies and creative solutions.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary" aria-label="View my projects">View Projects</a>
+                        <a href="#contact" class="btn btn-secondary" aria-label="Get in touch with me">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="profile-circle" role="img" aria-label="Jack Rentschler profile avatar">
+                        <img src="/profile-image.jpg" alt="Jack Rentschler" class="profile-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services" aria-labelledby="services-heading">
+            <div class="section-header">
+                <div class="section-label">What I Do</div>
+                <h2 id="services-heading" class="section-title">Services & Skills</h2>
+            </div>
+            <div class="services-grid">
+                <article class="service-card fade-in-up">
+                    <div class="service-icon" aria-hidden="true">⚡</div>
+                    <h3>Web Development</h3>
+                    <p class="service-description">Building responsive, performant web applications using modern frameworks and best practices.</p>
+                </article>
+                <article class="service-card fade-in-up">
+                    <div class="service-icon" aria-hidden="true">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p class="service-description">Creating intuitive and visually appealing interfaces that enhance user experience.</p>
+                </article>
+                <article class="service-card fade-in-up">
+                    <div class="service-icon" aria-hidden="true">📱</div>
+                    <h3>Mobile Development</h3>
+                    <p class="service-description">Developing cross-platform mobile applications with native performance and feel.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects" aria-labelledby="projects-heading">
+            <div class="section-header">
+                <div class="section-label">Portfolio</div>
+                <h2 id="projects-heading" class="section-title">Recent Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <article class="project-card fade-in-up">
+                    <div class="project-image" role="img" aria-label="Personal Portfolio project preview"></div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <h3>Personal Portfolio</h3>
+                        <p class="project-description">A modern, responsive portfolio website showcasing my skills and projects with interactive animations.</p>
+                        <a href="#" class="project-link" aria-label="View Personal Portfolio project">View Project →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact" aria-labelledby="contact-heading">
+            <div class="contact-content">
+                <h2 id="contact-heading" class="contact-title">Let's Build Something Amazing</h2>
+                <p class="contact-description">
+                    I'm always interested in hearing about new projects and opportunities.
+                </p>
+                <div class="contact-links" role="list" aria-label="Social media and contact links">
+                    <a href="https://github.com/rntschlr" 
+                       class="contact-link" 
+                       aria-label="Visit Jack Rentschler's GitHub profile"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:johnkrentschler@icloud.com" 
+                       class="contact-link" 
+                       aria-label="Send email to Jack Rentschler">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p class="footer-text">&copy; <span id="current-year">2024</span> Jack Rentschler. All rights reserved.</p>
+    </footer>
+
+    <script>
+        'use strict';
+        
+        // Error handling wrapper
+        function safeExecute(fn, errorMessage) {
+            try {
+                return fn();
+            } catch (error) {
+                console.warn(errorMessage || 'An error occurred:', error);
+                return null;
+            }
+        }
+
+        // Dynamic year update
+        safeExecute(() => {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        }, 'Error updating year');
+
+        // Smooth scrolling for navigation links with error handling
+        safeExecute(() => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    safeExecute(() => {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const target = document.querySelector(targetId);
+                        
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // Update focus for accessibility
+                            target.focus({ preventScroll: true });
+                        }
+                    }, 'Error in smooth scrolling');
+                });
+            });
+        }, 'Error setting up smooth scrolling');
+
+        // Optimized navbar scroll effect with requestAnimationFrame
+        let ticking = false;
+        function updateNavbar() {
+            safeExecute(() => {
+                const navbar = document.getElementById('navbar');
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+                ticking = false;
+            }, 'Error updating navbar');
+        }
+
+        safeExecute(() => {
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateNavbar);
+                    ticking = true;
+                }
+            }, { passive: true });
+        }, 'Error setting up scroll listener');
+
+        // Intersection Observer for animations with error handling
+        safeExecute(() => {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                safeExecute(() => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, 'Error in intersection observer callback');
+            }, observerOptions);
+
+            // Apply animation to cards
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            animatedElements.forEach(el => {
+                safeExecute(() => {
+                    observer.observe(el);
+                }, 'Error observing element');
+            });
+        }, 'Error setting up intersection observer');
+
+        // Keyboard navigation enhancements
+        safeExecute(() => {
+            document.addEventListener('keydown', function(e) {
+                // Skip to main content with Enter on skip link
+                if (e.key === 'Enter' && e.target.classList.contains('skip-link')) {
+                    e.preventDefault();
+                    const main = document.getElementById('main');
+                    if (main) {
+                        main.focus();
+                        main.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        }, 'Error setting up keyboard navigation');
+
+        // Preload critical resources
+        safeExecute(() => {
+            const criticalLinks = [
+                'https://github.com/rntschlr'
+            ];
+            
+            criticalLinks.forEach(url => {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = url;
+                document.head.appendChild(link);
+            });
+        }, 'Error preloading resources');
+
+        // Performance monitoring
+        safeExecute(() => {
+            window.addEventListener('load', function() {
+                if ('performance' in window && 'getEntriesByType' in performance) {
+                    const paintEntries = performance.getEntriesByType('paint');
+                    paintEntries.forEach(entry => {
+                        console.log(`${entry.name}: ${entry.startTime}ms`);
+                    });
+                }
+            });
+        }, 'Error in performance monitoring');
+    </script>
+</body>
+</html>
