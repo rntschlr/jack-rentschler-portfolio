@@ -22,7 +22,7 @@ export default function Hero() {
           {/* Professional headshot */}
           <div className="w-48 h-48 mx-auto rounded-full overflow-hidden mb-8 shadow-lg">
             <img 
-              src="/profile-photo.jpeg" 
+              src="/cathedral-profile.jpg" 
               alt="Jack Rentschler" 
               className="w-full h-full object-cover"
             />
