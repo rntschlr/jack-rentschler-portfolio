@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Johnson - CS Student Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif'],
+                },
+                colors: {
+                    primary: '#1a1a1a',
+                    secondary: '#6366f1',
+                    accent: '#06b6d4',
+                }
+            }
+        }
+    };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Navigation -->
+    <!-- @COMPONENT: NavigationBar [sticky navigation with smooth scroll] -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-xl font-bold text-primary">Alex Johnson</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-secondary transition-colors duration-300">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-secondary transition-colors duration-300">About</a>
+                        <a href="#skills" class="nav-link text-gray-700 hover:text-secondary transition-colors duration-300">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-700 hover:text-secondary transition-colors duration-300">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-secondary transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-secondary focus:outline-none focus:text-secondary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-secondary transition-colors duration-300">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-secondary transition-colors duration-300">About</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-700 hover:text-secondary transition-colors duration-300">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-700 hover:text-secondary transition-colors duration-300">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-secondary transition-colors duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: NavigationBar -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [main introduction with call-to-action] -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-100 pt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-y-8">
+                <!-- Professional headshot placeholder -->
+                <div class="w-48 h-48 mx-auto rounded-full bg-gray-200 flex items-center justify-center mb-8 shadow-lg">
+                    <i class="fas fa-user text-6xl text-gray-400"></i>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold text-primary mb-6 animate-fade-in">
+                    Hi, I'm <span class="text-secondary">Alex Johnson</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    <span data-mock="true">Computer Science Student passionate about web development, algorithms, and creating innovative solutions that make a difference.</span>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-secondary text-secondary px-8 py-3 rounded-lg font-semibold hover:bg-secondary hover:text-white transition-all duration-300">
+                        Get In Touch
+                    </a>
+                </div>
+                
+                <div class="flex justify-center space-x-6 mt-8">
+                    <a href="#" class="text-gray-600 hover:text-secondary transition-colors duration-300" data-implementation="Link to actual GitHub">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-secondary transition-colors duration-300" data-implementation="Link to actual LinkedIn">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-secondary transition-colors duration-300" data-implementation="Link to actual Twitter">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: AboutSection [education, experience, personal info] -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">About Me</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-mock="true">I'm a dedicated Computer Science student with a passion for solving complex problems through code.</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary mb-4">Education</h3>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-semibold text-lg text-secondary" data-mock="true">Bachelor of Science in Computer Science</h4>
+                            <p class="text-gray-600" data-mock="true">University of Technology • Expected 2025</p>
+                            <p class="text-gray-600 mt-2" data-mock="true">GPA: 3.8/4.0</p>
+                            <p class="text-gray-600 mt-2" data-mock="true">Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary mb-4">Experience</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg text-secondary" data-mock="true">Software Development Intern</h4>
+                                <p class="text-gray-600" data-mock="true">TechCorp Inc. • Summer 2023</p>
+                                <ul class="text-gray-600 mt-2 space-y-1" data-mock="true">
+                                    <li>• Developed responsive web applications using React and Node.js</li>
+                                    <li>• Collaborated with senior developers on feature implementation</li>
+                                    <li>• Improved application performance by 20%</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-lg text-secondary" data-mock="true">Teaching Assistant</h4>
+                                <p class="text-gray-600" data-mock="true">University of Technology • 2022-2023</p>
+                                <ul class="text-gray-600 mt-2 space-y-1" data-mock="true">
+                                    <li>• Assisted students with programming assignments in Python and Java</li>
+                                    <li>• Conducted weekly lab sessions for 30+ students</li>
+                                    <li>• Graded assignments and provided constructive feedback</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary mb-4">What I Do</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-code text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Web Development</h4>
+                                    <p class="text-gray-600" data-mock="true">Building responsive, modern web applications using the latest technologies and best practices.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Mobile Development</h4>
+                                    <p class="text-gray-600" data-mock="true">Creating cross-platform mobile applications with focus on user experience and performance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-database text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Data Analysis</h4>
+                                    <p class="text-gray-600" data-mock="true">Analyzing complex datasets to extract meaningful insights and drive decision-making.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary mb-4">Achievements</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-trophy text-yellow-500"></i>
+                                <span data-mock="true">Dean's List - Fall 2023</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-medal text-blue-500"></i>
+                                <span data-mock="true">Hackathon Winner - CodeFest 2023</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-certificate text-green-500"></i>
+                                <span data-mock="true">AWS Cloud Practitioner Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: AboutSection -->
+
+    <!-- Skills Section -->
+    <!-- @COMPONENT: SkillsSection [visual skill indicators with progress bars] -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Skills & Technologies</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-mock="true">Here are the technologies and tools I work with regularly.</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-primary mb-6 flex items-center">
+                        <i class="fas fa-code text-secondary mr-2"></i>
+                        Programming Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Python</span>
+                                <span class="text-sm text-gray-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full w-[90%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">JavaScript</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full w-[85%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Java</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full w-[80%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">C++</span>
+                                <span class="text-sm text-gray-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full w-[75%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-primary mb-6 flex items-center">
+                        <i class="fas fa-globe text-accent mr-2"></i>
+                        Web Technologies
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">React</span>
+                                <span class="text-sm text-gray-600">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full w-[88%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Node.js</span>
+                                <span class="text-sm text-gray-600">82%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full w-[82%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">HTML/CSS</span>
+                                <span class="text-sm text-gray-600">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full w-[92%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Express.js</span>
+                                <span class="text-sm text-gray-600">78%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-accent h-2 rounded-full w-[78%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Databases -->
+                <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-xl font-semibold text-primary mb-6 flex items-center">
+                        <i class="fas fa-tools text-green-600 mr-2"></i>
+                        Tools & Databases
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Git</span>
+                                <span class="text-sm text-gray-600">87%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full w-[87%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">MongoDB</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full w-[80%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">PostgreSQL</span>
+                                <span class="text-sm text-gray-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full w-[75%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Docker</span>
+                                <span class="text-sm text-gray-600">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full w-[70%] transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: SkillsSection -->
+
+    <!-- Projects Section -->
+    <!-- @COMPONENT: ProjectsSection [portfolio showcase with project cards] -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Featured Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-mock="true">Here are some of my recent projects that showcase my skills and experience.</span>
+                </p>
+            </div>
+            
+            <!-- @MAP: projects.map(project => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                    <!-- Modern weather app interface showing clear sky and temperature -->
+                    <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" alt="Weather app interface" class="w-full h-48 object-cover" data-mock-image="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2" data-mock="true">Weather Dashboard</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">A responsive weather application built with React and OpenWeatherMap API featuring real-time data and 5-day forecasts.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-text-sm">React</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Node.js</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">API</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary hover:text-indigo-700 transition-colors" data-implementation="Link to live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary transition-colors" data-implementation="Link to GitHub repo">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                    <!-- E-commerce shopping interface with products displayed -->
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" alt="E-commerce shopping interface" class="w-full h-48 object-cover" data-mock-image="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2" data-mock="true">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Full-stack e-commerce application with user authentication, shopping cart, and payment integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">MERN</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Redux</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Stripe</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary hover:text-indigo-700 transition-colors" data-implementation="Link to live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary transition-colors" data-implementation="Link to GitHub repo">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                    <!-- Task management application with organized boards and lists -->
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" alt="Task management application interface" class="w-full h-48 object-cover" data-mock-image="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2" data-mock="true">Task Manager</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">A collaborative task management tool with real-time updates, team collaboration, and progress tracking.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-sm">React</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Socket.io</span>
+                            <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary hover:text-indigo-700 transition-colors" data-implementation="Link to live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary transition-colors" data-implementation="Link to GitHub repo">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                    <!-- Data visualization dashboard with charts and graphs -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" alt="Data visualization dashboard" class="w-full h-48 object-cover" data-mock-image="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2" data-mock="true">Data Visualization Dashboard</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Interactive dashboard for data analysis with dynamic charts, filtering, and real-time updates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-sm">D3.js</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">React</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Python</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary hover:text-indigo-700 transition-colors" data-implementation="Link to live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary transition-colors" data-implementation="Link to GitHub repo">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                    <!-- Mobile chat application interface with messages -->
+                    <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" alt="Mobile chat application" class="w-full h-48 object-cover" data-mock-image="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2" data-mock="true">Real-time Chat App</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Mobile-first chat application with real-time messaging, file sharing, and group conversations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">React Native</span>
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Firebase</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Socket.io</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary hover:text-indigo-700 transition-colors" data-implementation="Link to live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary transition-colors" data-implementation="Link to GitHub repo">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden border border-gray-100">
+                    <!-- Machine learning model visualization and analysis -->
+                    <img src="https://images.unsplash.com/photo-1518186233392-c232efbf2373?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300" alt="Machine learning visualization" class="w-full h-48 object-cover" data-mock-image="true">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2" data-mock="true">ML Prediction Model</h3>
+                        <p class="text-gray-600 mb-4" data-mock="true">Machine learning model for predictive analysis with data preprocessing, training, and visualization.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Python</span>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">TensorFlow</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Pandas</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-secondary hover:text-indigo-700 transition-colors" data-implementation="Link to live demo">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-primary transition-colors" data-implementation="Link to GitHub repo">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP -->
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-secondary text-secondary rounded-lg hover:bg-secondary hover:text-white transition-all duration-300" data-implementation="Link to full portfolio or GitHub">
+                    <i class="fab fa-github mr-2"></i>
+                    View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ProjectsSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact form and information] -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <span data-mock="true">I'm always open to discussing new opportunities and interesting projects.</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600" data-mock="true">alex.johnson@email.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-phone text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600" data-mock="true">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-600" data-mock="true">San Francisco, CA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary mb-6">Social Media</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-700 transition-colors duration-300" data-implementation="Link to actual GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors duration-300" data-implementation="Link to actual LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors duration-300" data-implementation="Link to actual Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center text-white hover:bg-purple-700 transition-colors duration-300" data-implementation="Link to actual Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-sm">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Send Message</h3>
+                    <form class="space-y-6" id="contact-form">
+                        <!-- @STATE: formData:object = {name: '', email: '', subject: '', message: ''} -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300" data-mock="true" placeholder="Enter your name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300" data-mock="true" placeholder="Enter your email">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300" data-mock="true" placeholder="Enter subject">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-300 resize-none" data-mock="true" placeholder="Enter your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" data-event="click:handleSubmit" data-implementation="Should validate form and send email">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <!-- @COMPONENT: Footer [simple footer with copyright] -->
+    <footer class="bg-primary text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-300" data-mock="true">© 2024 Alex Johnson. All rights reserved.</p>
+                <p class="text-gray-400 mt-2" data-mock="true">Built with ❤️ using modern web technologies</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Mobile menu toggle
+        (function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        })();
+
+        // Form submission handler
+        (function() {
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement actual form submission logic
+                alert('Thank you for your message! This is a demo form.');
+            });
+        })();
+
+        // Navbar scroll effect
+        (function() {
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
+        })();
+
+        // Animate skill bars on scroll
+        (function() {
+            const skillBars = document.querySelectorAll('.bg-secondary, .bg-accent, .bg-green-500');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.style.width || entry.target.className.match(/w-\[(\d+)%\]/)?.[1] + '%';
+                    }
+                });
+            }, observerOptions);
+
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "Jack Rentschler - Professional Web Developer",
+  "short_name": "Jack Rentschler",
+  "description": "Professional web developer portfolio showcasing modern web applications, UI/UX design, and full-stack development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#b9ff66",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "business", "productivity"],
+  "lang": "en-US"
+}
