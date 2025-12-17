@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { z } from "zod";
+import { sendContactEmail } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
@@ -11,9 +12,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const contactData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(contactData);
       
-      // Here you would typically send an email
-      // For now, we'll just log it and return success
-      console.log("New contact form submission:", contact);
+      // Send email notification
+      const emailSent = await sendContactEmail(contact);
+
+      if (!emailSent) {
+        // Log failure but don't fail the request since we saved to DB
+        console.error("Failed to send email notification for contact:", contact.id);
+      }
       
       res.json({ 
         success: true, 
