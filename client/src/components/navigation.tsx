@@ -1,7 +1,18 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-export default function Navigation() {
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+interface NavigationProps {
+  brand: string;
+  links: NavLink[];
+  ctaLabel: string;
+}
+
+export default function Navigation({ brand, links, ctaLabel }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,14 +36,6 @@ export default function Navigation() {
     setIsMenuOpen(false);
   };
 
-  const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Education", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -43,14 +46,14 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 cursor-pointer" onClick={() => handleLinkClick("#home")}>
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
-              Jack Rentschler
+              {brand}
             </span>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              {navLinks.map((link) => (
+              {links.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleLinkClick(link.href)}
@@ -61,10 +64,10 @@ export default function Navigation() {
                 </button>
               ))}
               <button
-                 onClick={() => handleLinkClick("#contact")}
-                 className="px-5 py-2.5 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
+                onClick={() => handleLinkClick("#contact")}
+                className="px-5 py-2.5 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 transition-colors shadow-sm"
               >
-                Hire Me
+                {ctaLabel}
               </button>
             </div>
           </div>
@@ -85,7 +88,7 @@ export default function Navigation() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 animate-in slide-in-from-top-5 duration-200">
           <div className="px-4 pt-2 pb-6 space-y-2">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleLinkClick(link.href)}

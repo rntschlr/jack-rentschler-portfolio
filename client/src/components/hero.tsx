@@ -1,6 +1,27 @@
-import { User, ArrowDown, FileText, Mail } from "lucide-react";
+import { ArrowDown, FileText, Mail } from "lucide-react";
 
-export default function Hero() {
+interface HeroCta {
+  label: string;
+  href: string;
+}
+
+interface HeroProps {
+  badge: string;
+  name: string;
+  role: string;
+  summary: string;
+  primaryCta: HeroCta;
+  secondaryCta: HeroCta;
+}
+
+export default function Hero({
+  badge,
+  name,
+  role,
+  summary,
+  primaryCta,
+  secondaryCta,
+}: HeroProps) {
   const handleLinkClick = (href: string) => {
     const targetElement = document.querySelector(href);
     if (targetElement) {
@@ -42,33 +63,40 @@ export default function Hero() {
 
           <div className="space-y-4 max-w-3xl">
             <div className="inline-block px-3 py-1 text-sm font-semibold text-indigo-700 bg-indigo-50 rounded-full border border-indigo-100 mb-2">
-              Available for Hire
+              {badge}
             </div>
 
             <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight text-balance">
-              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Jack Rentschler</span>
+              Hi, I'm{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
+                {name}
+              </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed text-balance">
-              Aspiring Software Engineer & Computer Science Student.
-              Building the web with precision and passion.
-            </p>
+            <div className="space-y-3">
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed text-balance">
+                {role}
+              </p>
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed text-balance">
+                {summary}
+              </p>
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
-              onClick={() => handleLinkClick("#projects")}
+              onClick={() => handleLinkClick(primaryCta.href)}
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-indigo-600 rounded-lg hover:bg-indigo-700 shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transform hover:-translate-y-0.5"
             >
               <FileText className="w-5 h-5 mr-2" />
-              View My Work
+              {primaryCta.label}
             </button>
             <button
-              onClick={() => handleLinkClick("#contact")}
+              onClick={() => handleLinkClick(secondaryCta.href)}
               className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-700 transition-all duration-200 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:text-indigo-600 hover:border-indigo-200 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
             >
               <Mail className="w-5 h-5 mr-2" />
-              Contact Me
+              {secondaryCta.label}
             </button>
           </div>
         </div>

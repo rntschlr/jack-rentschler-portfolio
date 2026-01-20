@@ -52,94 +52,81 @@ function TimelineItem({ title, subtitle, date, description, type }: TimelineItem
   );
 }
 
-export default function About() {
+interface HighlightCard {
+  title: string;
+  description: string;
+  accent: "yellow" | "blue" | "green";
+}
+
+interface AboutProps {
+  title: string;
+  intro: string;
+  timeline: TimelineItemProps[];
+  highlightsTitle: string;
+  highlights: HighlightCard[];
+  relocation: {
+    title: string;
+    description: string;
+  };
+}
+
+const accentStyles = {
+  yellow: "bg-yellow-100 text-yellow-600",
+  blue: "bg-blue-100 text-blue-600",
+  green: "bg-green-100 text-green-600",
+};
+
+export default function About({
+  title,
+  intro,
+  timeline,
+  highlightsTitle,
+  highlights,
+  relocation,
+}: AboutProps) {
   return (
     <section id="about" className="section-padding bg-white overflow-hidden">
       <div className="container-width">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Education & Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{title}</h2>
           <p className="text-lg text-gray-600">
-            My academic journey and professional milestones that have shaped my career in Computer Science.
+            {intro}
           </p>
         </div>
 
         <div className="relative space-y-12">
-          {/* Education 1 */}
-          <TimelineItem
-            type="education"
-            title="Bachelor of Science in Computer Science"
-            subtitle="[Your University]"
-            date="Expected [Year]"
-            description={[
-              "Relevant Coursework: Data Structures, Algorithms, Web Development, Database Systems, Operating Systems",
-              "GPA: [Your GPA] (Optional)",
-              "Member of [Club/Organization]"
-            ]}
-          />
-
-          {/* Experience 1 */}
-          <TimelineItem
-            type="experience"
-            title="[Your Job Title]"
-            subtitle="[Company Name]"
-            date="[Start Date] - [End Date]"
-            description={[
-              "Developed and maintained web applications using React and Node.js.",
-              "Collaborated with cross-functional teams to define, design, and ship new features.",
-              "Improved application performance by optimizing database queries."
-            ]}
-          />
-
-           {/* Experience 2 */}
-           <TimelineItem
-            type="experience"
-            title="[Previous Job Title]"
-            subtitle="[Previous Company Name]"
-            date="[Start Date] - [End Date]"
-            description={[
-              "Assisted in the development of internal tools to streamline operations.",
-              "Participated in code reviews and provided constructive feedback.",
-              "Wrote unit and integration tests to ensure code quality."
-            ]}
-          />
+          {timeline.map((item, index) => (
+            <TimelineItem key={`${item.title}-${index}`} {...item} />
+          ))}
         </div>
 
         {/* Achievements Section */}
         <div className="mt-20">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Achievements & Certifications</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">{highlightsTitle}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:bg-white hover:shadow-md transition-all">
-              <div className="bg-yellow-100 p-2 rounded-lg">
-                <Award className="text-yellow-600" size={24} />
+            {highlights.map((highlight, index) => (
+              <div
+                key={`${highlight.title}-${index}`}
+                className="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:bg-white hover:shadow-md transition-all"
+              >
+                <div className={`p-2 rounded-lg ${accentStyles[highlight.accent]}`}>
+                  <Award size={24} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900">{highlight.title}</h4>
+                  <p className="text-sm text-gray-600 mt-1">{highlight.description}</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-bold text-gray-900">[Achievement Title]</h4>
-                <p className="text-sm text-gray-600 mt-1">Short description of what was achieved.</p>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:bg-white hover:shadow-md transition-all">
-              <div className="bg-blue-100 p-2 rounded-lg">
-                <Award className="text-blue-600" size={24} />
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900">[Achievement Title]</h4>
-                <p className="text-sm text-gray-600 mt-1">Short description of what was achieved.</p>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 flex items-start gap-4 hover:bg-white hover:shadow-md transition-all">
-              <div className="bg-green-100 p-2 rounded-lg">
-                <Award className="text-green-600" size={24} />
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900">[Achievement Title]</h4>
-                <p className="text-sm text-gray-600 mt-1">Short description of what was achieved.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
+        <div className="mt-16">
+          <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 md:p-8">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">{relocation.title}</h3>
+            <p className="text-gray-700">{relocation.description}</p>
+          </div>
+        </div>
       </div>
     </section>
   );
